@@ -4,7 +4,7 @@
 #include <string.h>
 
 
-	int maiornum(int a, int b){
+	int menornum(int a, int b){
 	if(a<b){
 		printf("o valor de %d é menor que %d", a,b);
 	}else if(b<a){
@@ -27,7 +27,7 @@ int main(void) {
 	scanf("%d", &num2);
 	
 	
-	maiornum(num1,num2);
+	menornum(num1,num2);
 	
 
 	
