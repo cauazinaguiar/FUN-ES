@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+
+
+void verificador(int valor){
+	if(valor>0){
+		puts("o valor é positivo");
+	}else if(valor==0){
+	puts("o valor é neutro");	
+	}else{
+		puts("o valor é negativo");
+	}
+}
+	
+
+
+int main(void) {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int num;
+	
+	puts("digite um número:");
+	scanf("%d", &num);
+	
+	verificador(num);
+	
+	return 0;
+}
