@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+
+
+	int maiornum(int a, int b, int c){
+	if(a>b && a>c){
+		printf("o maior valor é %d", a);
+	}else if(b>a && b>c){
+		printf("o maior valor é %d", b);
+	}else{
+		printf("o maior valor é %d", c);
+	}
+	}	
+
+
+int main(void) {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int num1,num2,num3;
+	
+	puts("digite o valor do primeiro número:");
+	scanf("%d", &num1);
+	
+	puts("digite o valor do segundo número:");
+	scanf("%d", &num2);
+	
+	puts("digite o valor do terceiro número:");
+	scanf("%d", &num3);
+	
+	maiornum(num1,num2,num3);
+	
+
+	
+	return 0;
+}
