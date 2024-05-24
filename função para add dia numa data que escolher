@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+#include <math.h>
+
+typedef struct {
+    int dia;
+    int mes;
+    int ano;
+} Data;
+
+
+int ehBissexto(int ano) {
+    if ((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0)) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+
+Data adicionarDias(Data data, int dias) {
+
+    int diasMeses[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    
+
+    if (ehBissexto(data.ano)) {
+        diasMeses[1] = 29;
+    }
+
+ 
+    data.dia += dias;
+
+
+    while (data.dia > diasMeses[data.mes - 1]) {
+        data.dia -= diasMeses[data.mes - 1];
+        data.mes++;
+        if (data.mes > 12) {
+            data.mes = 1;
+            data.ano++;
+            if (ehBissexto(data.ano)) {
+                diasMeses[1] = 29;
+            } else {
+                diasMeses[1] = 28;
+            }
+        }
+    }
+
+    return data;
+}
+
+int main(void) {
+
+	setlocale(LC_ALL, "Portuguese");
+	
+    Data data;
+    int dias;
+
+ 
+    printf("Digite a data inicial (dia/mês/ano): ");
+    scanf("%d %d %d", &data.dia, &data.mes, &data.ano);
+
+ 
+    printf("Digite o número de dias a serem adicionados: ");
+    scanf("%d", &dias);
+
+ 
+    Data novaData = adicionarDias(data, dias);
+
+
+    printf("Nova data: %02d/%02d/%04d\n", novaData.dia, novaData.mes, novaData.ano);
+
+    return 0;
+}
+
+
+
+
