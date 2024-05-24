@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+#include <math.h>
+
+typedef struct {
+    float x;
+    float y;
+} Ponto;
+
+
+float distanciaOrigem(Ponto p) {
+    return sqrt(p.x * p.x + p.y * p.y);
+}
+	
+int main(void) {
+
+	setlocale(LC_ALL, "Portuguese");
+	
+ Ponto p;
+
+    printf("Digite a coordenada x do ponto: ");
+    scanf("%f", &p.x);
+    printf("Digite a coordenada y do ponto: ");
+    scanf("%f", &p.y);
+
+    float distancia = distanciaOrigem(p);
+    printf("A distância do ponto (%.2f, %.2f) à origem é: %.2f\n", p.x, p.y, distancia);
+
+    return 0;
+}
+
